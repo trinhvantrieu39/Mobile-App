@@ -1,4 +1,4 @@
-package CuaHang;
+package NhapHang;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 import Button.ButtonAdd;
 
-public class CuaHangGUI extends JPanel{
+public class NhapHangGUI extends JPanel{
 	private JTable nhaphangTable = new JTable();
 	private DefaultTableModel model = new DefaultTableModel();
 	private JScrollPane sp ;
@@ -27,7 +27,7 @@ public class CuaHangGUI extends JPanel{
 	//private int soluongsp;
 	
 	
-	public CuaHangGUI(){
+	public NhapHangGUI(){
 		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		JPanel info = CreateInput();
 		add(info);
@@ -106,7 +106,7 @@ public class CuaHangGUI extends JPanel{
 	}
 	public static void main(String[] args) {
 		JFrame f = new JFrame();
-		JPanel p = new CuaHangGUI();
+		JPanel p = new NhapHangGUI();
 		f.add(p);
 		f.setVisible(true);
 		f.pack();
