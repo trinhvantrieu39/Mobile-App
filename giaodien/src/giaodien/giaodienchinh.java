@@ -5,6 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import CuaHang.CuaHangGUI;
+import NhanVien.NhanVienGUI;
 import NhapHang.NhapHangGUI;
 import test.PhoneBook;
 
@@ -35,6 +36,7 @@ private JLabel logout;
 
 private JPanel cuahang;
 private JPanel nhaphang;
+private JPanel nhanvien;
 public giaodienchinh() {
 	
 	//setLayout(mainLayout);
@@ -197,6 +199,9 @@ public giaodienchinh() {
 			}
 			case "Nhân viên":{
 				luachon.setText("NHÂN VIÊN");
+				
+				nhanvien = new NhanVienGUI();
+				content.add(nhanvien);
 				break;
 			}
 			case "Khách hàng":{
