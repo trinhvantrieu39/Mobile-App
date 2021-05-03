@@ -1,4 +1,4 @@
-package NhanVien;
+package HoaDon;
 import java.awt.FlowLayout;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -6,37 +6,40 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
 
 import Button.*;
+import NhanVien.DateLabelFormatter;
 import net.sourceforge.jdatepicker.impl.*;
 
-public class NhanVienGUI extends JPanel{
+public class HoaDonGUI extends JPanel{
 	private BoxLayout layout = new BoxLayout(this,BoxLayout.Y_AXIS);
 	private JTable nhanvienTable = new JTable();
 	private DefaultTableModel model = new DefaultTableModel();
 	private JScrollPane sp ;
-	private JPanel info;
-	private JPanel bot;
+	
 	private Border border= BorderFactory.createEtchedBorder(EtchedBorder.RAISED);
 	
+	private JTextField mahd = new JTextField(15);
 	private JTextField manv = new JTextField(15);
-	private JTextField tennv = new JTextField(15);
 	
-	private JComboBox gioitinh;
-	private JTextField diachi = new JTextField(15);
-	private JTextField sdt = new JTextField(15);
+	private JComboBox loaisp;
+	private JTextField makh = new JTextField(15);
+	private JTextField makm = new JTextField(15);
+	private JTextField tongtien = new JTextField(15);
 	private JDatePickerImpl date;// ngày sinh
 	
 	
-public NhanVienGUI(){
+public HoaDonGUI(){
 	setLayout(layout);
 	
 	JPanel panel = CreateInfo();
 	nhanvienTable.setModel(model);
+	model.addColumn("Mã hóa đơn");
 	model.addColumn("Mã NV");
-	model.addColumn("Tên NV");
-	model.addColumn("Ngày sinh");
-	model.addColumn("Giới tính");
-	model.addColumn("Địa chỉ");
-	model.addColumn("Số điện thoại");
+	model.addColumn("Mã KH");
+	model.addColumn("Mã khuyến mãi");
+	model.addColumn("Loại sản phẩm");
+	model.addColumn("Ngày lập");
+	model.addColumn("Tổng tiền");
+	
 	
 	sp = new JScrollPane(nhanvienTable);
 	add(panel);
@@ -52,37 +55,36 @@ private JPanel CreateInfo() {
 	tim.add(timkiem);
 	JPanel center = new JPanel();
 	center.setLayout(new BoxLayout(center,BoxLayout.Y_AXIS));
-	
+	tongtien.setBorder(BorderFactory.createTitledBorder(border,"Tổng tiền"));
 	manv.setBorder(BorderFactory.createTitledBorder(border,"Mã nhân viên"));
-	tennv.setBorder(BorderFactory.createTitledBorder(border,"Tên nhân viên"));
+	mahd.setBorder(BorderFactory.createTitledBorder(border,"Mã hóa đơn"));
 	
 	JPanel ns = new JPanel();
 	
 	//ngaysinh.setEditable(false);
 	date = cender();
-	date.setBorder(BorderFactory.createTitledBorder(border,"Ngày sinh"));
+	date.setBorder(BorderFactory.createTitledBorder(border,"Ngày lập"));
 	 
-	diachi.setBorder(BorderFactory.createTitledBorder(border, "Địa chỉ"));
-	sdt.setBorder(BorderFactory.createTitledBorder(border, "Số điện thoại"));
+	makh.setBorder(BorderFactory.createTitledBorder(border, "Mã khách hàng"));
+	makm.setBorder(BorderFactory.createTitledBorder(border, "Mã khuyến mãi"));
+	//lấy loại sản phẩm ở database vào
+	String gt[] = {"lsp1", "lsp2"};
+	JLabel gtl = new JLabel("Loại sản phẩm: ");
+	loaisp = new JComboBox(gt);
+	JPanel lsp = new JPanel();
+	lsp.add(gtl);
+	lsp.add(loaisp);
 	
-	String gt[] = {"Nam", "Nữ"};
-	JLabel gtl = new JLabel("Giới tính: ");
-	gioitinh = new JComboBox(gt);
-	JPanel gtinh = new JPanel();
-	gtinh.add(gtl);
-	gtinh.add(gioitinh);
 	JPanel lef = new JPanel();
+	lef.add(mahd);
 	lef.add(manv);
-	lef.add(tennv);
+	lef.add(makh);
+	lef.add(makm);
 	lef.add(ns);
-	lef.add(diachi);
-	lef.add(sdt);
-	
-	
-	
-	
+		
 	center.add(lef);
-	center.add(gtinh);
+	center.add(lsp);
+	lef.add(tongtien);
 	JButton them = new ButtonAdd();
 	//lấy ngày sinh
 /*
@@ -125,7 +127,7 @@ private JDatePickerImpl cender() {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		JFrame f = new JFrame();
-		JPanel p= new NhanVienGUI();
+		JPanel p= new HoaDonGUI();
 		
 		f.add(p);
 		f.pack();

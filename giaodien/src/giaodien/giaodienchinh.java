@@ -5,9 +5,13 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import CuaHang.CuaHangGUI;
+import HoaDon.HoaDonGUI;
+import KhachHang.KhachHangGUI;
+import NhaCungCap.NhaCungCapGUI;
 import NhanVien.NhanVienGUI;
 import NhapHang.NhapHangGUI;
-import test.PhoneBook;
+import SanPham.SanPhamGUI;
+import TaiKhoan.TaiKhoanGUI;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -37,6 +41,13 @@ private JLabel logout;
 private JPanel cuahang;
 private JPanel nhaphang;
 private JPanel nhanvien;
+private JPanel sanpham;
+private JPanel nhacungcap;
+private JPanel khachhang;
+private JPanel hoadon;
+private JPanel taikhoan;
+
+
 public giaodienchinh() {
 	
 	//setLayout(mainLayout);
@@ -154,6 +165,9 @@ public giaodienchinh() {
 		
 		list = new JList<LeftMenuItem>(model);
 		list.setCellRenderer(new LeftMenuItemRenderer());
+		
+		
+		
 		list.addListSelectionListener(new ListSelectionListener() {
 			
 			@Override
@@ -182,11 +196,14 @@ public giaodienchinh() {
 			}
 			case "Hóa đơn":{
 				luachon.setText("HÓA ĐƠN");
-				logout.setText("Aka");
+				hoadon = new HoaDonGUI();
+				content.add(hoadon);
 				break;
 			}
 			case "Sản phẩm":{
 				luachon.setText("SẢN PHẨM");
+				sanpham= new SanPhamGUI();
+				content.add(sanpham);
 				break;
 			}
 			case "Nhập hàng":{
@@ -206,14 +223,20 @@ public giaodienchinh() {
 			}
 			case "Khách hàng":{
 				luachon.setText("KHÁCH HÀNG");
+				khachhang = new KhachHangGUI();
+				content.add(khachhang);
 				break;
 			}
 			case "Nhà cung cấp":{
 				luachon.setText("NHÀ CUNG CẤP");
+				nhacungcap = new NhaCungCapGUI();
+				content.add(nhacungcap);
 				break;
 			}
 			case "Tài khoản":{
 				luachon.setText("TÀI KHOẢN");
+				taikhoan = new TaiKhoanGUI();
+				content.add(taikhoan);
 				break;
 			}
 		}

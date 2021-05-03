@@ -1,6 +1,7 @@
 package giaodien;
 import java.awt.*;
-import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -33,6 +34,8 @@ public class LeftMenuItemRenderer extends JPanel implements ListCellRenderer<Lef
 		//set Opaque
 		name.setOpaque(true);
 		icon.setOpaque(true);
+		
+		
 		//when selected item
 		
 		if(isSelected) {
