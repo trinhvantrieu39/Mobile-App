@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#ff000000">
+
+
+    <SurfaceView
+        android:id="@+id/box1"
+        android:layout_width="150dp"
+        android:layout_height="180dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#ffffffff"/>
+
+    <SurfaceView
+        android:id="@+id/box2"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_alignTop="@+id/box1"
+        android:layout_toEndOf="@+id/box1"
+        android:layout_toRightOf="@+id/box1"
+        android:background="#ffffffff" />
+
+    <SurfaceView
+        android:id="@+id/box3"
+        android:layout_width="fill_parent"
+        android:layout_height="160dp"
+        android:layout_below="@+id/box2"
+        android:layout_alignStart="@+id/box2"
+        android:layout_alignLeft="@+id/box2"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#ffffff" />
+
+    <SurfaceView
+        android:id="@+id/box4"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/seekbar"
+        android:layout_below="@+id/box1"
+        android:layout_alignEnd="@+id/box1"
+        android:layout_alignRight="@+id/box1"
+        android:background="#ffffffff" />
+
+    <SurfaceView
+        android:id="@+id/box5"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/seekbar"
+        android:layout_below="@+id/box3"
+        android:layout_alignStart="@+id/box3"
+        android:layout_alignLeft="@+id/box3"
+        android:background="#ffffffff" />
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/box5"
+        android:layout_alignRight="@+id/box5"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:indeterminate="false" />
+
+
+</RelativeLayout>
